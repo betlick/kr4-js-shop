@@ -250,56 +250,159 @@ if (beatFrames.length > 1) {
 }
 
 
+// console.log('Файл main.js подключён');
+// console.log(product);
+// console.table(product);
+
+// function formatPrice(price) {
+//   return `${price} руб.`;
+// }
+
+// console.log(formatPrice(product.price));
+
+// function calculateDiscount(price, discountPercent) {
+//   return price * discountPercent / 100;
+// }
+
+// const discountValue = calculateDiscount(product.price, product.discountPercent);
+
+// console.log(discountValue);
+
+// function calculateFinalPrice(price, discountPercent) {
+//   const discountValue = calculateDiscount(price, discountPercent);
+//   return price - discountValue;
+// }
+
+// const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
+
+// console.log(finalPrice);
+
+// function getProductStatus(product) {
+//   if (product.isAvailable) {
+//     return 'В наличии';
+//   }
+
+//   return 'Нет в наличии';
+// }
+
+// console.log(getProductStatus(product));
+
+// function createProductSummary(product) {
+//   const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
+//   const status = getProductStatus(product);
+
+//   return `${product.title}: ${formatPrice(finalPrice)}. Статус: ${status}.`;
+// }
+
+// const productSummary = createProductSummary(product);
+
+// console.log(productSummary);
+
+// const messageElement = document.querySelector('.js-message');
+// const productOutputElement = document.querySelector('.product-output');
+
+// messageElement.textContent = 'JavaScript подключён корректно.';
+// productOutputElement.textContent = productSummary;
+
 console.log('Файл main.js подключён');
-console.log(product);
-console.table(product);
+console.table(products);
 
-function formatPrice(price) {
-  return `${price} руб.`;
+function getProductTitles(products) {
+  return products.map((product) => product.title);
 }
 
-console.log(formatPrice(product.price));
-
-function calculateDiscount(price, discountPercent) {
-  return price * discountPercent / 100;
+function getAvailableProducts(products) {
+  return products.filter((product) => product.isAvailable);
 }
 
-const discountValue = calculateDiscount(product.price, product.discountPercent);
+function searchProducts(products, query) {
+  const normalizedQuery = query.trim().toLowerCase();
 
-console.log(discountValue);
-
-function calculateFinalPrice(price, discountPercent) {
-  const discountValue = calculateDiscount(price, discountPercent);
-  return price - discountValue;
-}
-
-const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
-
-console.log(finalPrice);
-
-function getProductStatus(product) {
-  if (product.isAvailable) {
-    return 'В наличии';
+  if (normalizedQuery === '') {
+    return products;
   }
 
-  return 'Нет в наличии';
+  return products.filter((product) => {
+    return product.title.toLowerCase().includes(normalizedQuery);
+  });
 }
 
-console.log(getProductStatus(product));
+function filterProductsByCategory(products, category) {
+  if (category === 'all') {
+    return products;
+  }
 
-function createProductSummary(product) {
-  const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
-  const status = getProductStatus(product);
-
-  return `${product.title}: ${formatPrice(finalPrice)}. Статус: ${status}.`;
+  return products.filter((product) => {
+    return product.category === category;
+  });
 }
 
-const productSummary = createProductSummary(product);
+function sortProductsByPrice(products, direction = 'asc') {
+  const productsCopy = [...products];
 
-console.log(productSummary);
+  if (direction === 'desc') {
+    return productsCopy.sort((a, b) => b.price - a.price);
+  }
+
+  return productsCopy.sort((a, b) => a.price - b.price);
+}
+
+function findProductById(products, id) {
+  return products.find((product) => product.id === id);
+}
+
+function calculateTotalPrice(products) {
+  return products.reduce((sum, product) => {
+    return sum + product.price;
+  }, 0);
+}
+
+function countAvailableProducts(products) {
+  return products.filter((product) => product.isAvailable).length;
+}
+
+function calculateAveragePrice(products) {
+  if (products.length === 0) {
+    return 0;
+  }
+
+  const totalPrice = calculateTotalPrice(products);
+  return Math.round(totalPrice / products.length);
+}
+
+function getPreparedProducts(products, query, category, sortDirection) {
+  let result = [...products];
+
+  result = searchProducts(result, query);
+  result = filterProductsByCategory(result, category);
+  result = sortProductsByPrice(result, sortDirection);
+
+  return result;
+}
+
+console.log(getProductTitles(products));
+console.table(getAvailableProducts(products));
+console.table(searchProducts(products, 'ко'));
+console.table(filterProductsByCategory(products, 'kitchen'));
+console.table(sortProductsByPrice(products, 'asc'));
+console.log(findProductById(products, 3));
+console.log(calculateTotalPrice(products));
+console.log(countAvailableProducts(products));
+console.log(calculateAveragePrice(products));
+console.table(getPreparedProducts(products, 'ко', 'kitchen', 'asc'));
 
 const messageElement = document.querySelector('.js-message');
 const productOutputElement = document.querySelector('.product-output');
 
-messageElement.textContent = 'JavaScript подключён корректно.';
-productOutputElement.textContent = productSummary;
+if (messageElement) {
+  messageElement.textContent = 'Массив товаров и функции обработки данных подключены.';
+}
+
+if (productOutputElement) {
+  productOutputElement.textContent = [
+    `Всего товаров: ${products.length}`,
+    `Товаров в наличии: ${countAvailableProducts(products)}`,
+    `Средняя цена: ${calculateAveragePrice(products)} руб.`,
+    `Результатов поиска "ко": ${searchProducts(products, 'ко').length}`
+  ].join('\n');
+}
