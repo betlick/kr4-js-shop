@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Beat Store: каталог битов, прослушивание и заявка на покупку."
+    />
+    <title>Биты для записи музыки — Beat Store</title>
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css?v=player-layout-2" />
+    <link rel="stylesheet" href="css/responsive.css?v=responsive-8" />
+    <link rel="stylesheet" href="css/beat-theme.css?v=beat-11" />
+    <script src="js/data.js" defer></script>
+    <script src="js/main.js?v=gallery-7" defer></script>
+  </head>
+  <body id="top">
+    <section class="section js-check" aria-labelledby="js-check-title">
+    <h2 id="js-check-title">Проверка JavaScript</h2>
+    <p class="js-message">JavaScript пока не выполнился.</p>
+    <pre class="product-output"></pre>
+  </section>
+
+    <a class="skip-link" href="#main-content">Перейти к содержимому</a>
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="site-header__logo" href="index.html">Beat Store</a>
+        <nav class="site-nav" aria-label="Основная навигация">
+          <ul class="site-nav__list">
+            <li class="site-nav__item">
+              <a
+                class="site-nav__link site-nav__link--active"
+                aria-current="page"
+                href="index.html"
+                >Главная</a
+              >
+            </li>
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="catalog.html">Каталог</a>
+            </li>
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="product.html">О битах</a>
+            </li>
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="order.html">Заявка</a>
+            </li>
+            <li class="site-nav__item">
+              <a class="site-nav__link" href="contacts.html">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="page-main" id="main-content" tabindex="-1">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <h1 class="hero__title" id="hero-title">
+            <span>Звук для</span><span>вашего</span><span>трека.</span>
+          </h1>
+          <p class="hero__description">Биты. Прослушивание. Лицензии.</p>
+          <div class="hero__actions">
+            <a class="button button--primary" href="#popular">Слушать биты</a>
+            <a class="button button--secondary" href="#advantages"
+              >Преимущества</a
+            >
+          </div>
+        </div>
+        <div class="record-art">
+          <div class="record-art__turntable">
+            <img
+              class="record-art__disc"
+              src="images/vinyl-still.png"
+              srcset="images/vinyl-still-320.png 320w, images/vinyl-still.png 480w"
+              sizes="(max-width: 699px) calc(100vw - 32px), (max-width: 1271px) calc(50vw - 32px), 560px"
+              width="480"
+              height="480"
+              alt="Виниловая пластинка в голубом конверте"
+            />
+          </div>
+          <div class="record-art__sleeve" aria-hidden="true">
+            <span class="record-art__number">BEAT<br />001</span>
+            <span class="record-art__caption"
+              >INSTRUMENTALS<br />BEAT STORE / 2026</span
+            >
+          </div>
+          <button class="record-art__toggle" type="button" aria-pressed="false" hidden>
+            Остановить вращение
+          </button>
+        </div>
+      </section>
+      <section class="photo-gallery" aria-label="Фотогалерея Beat Store" aria-roledescription="карусель">
+        <ol class="photo-gallery__track" tabindex="0" aria-label="Фотографии Beat Store">
+          <li class="photo-gallery__slide" aria-label="Фото 1 из 4">
+            <img src="images/che_ss.jpg" width="1200" height="800" alt="Группа людей на музыкальном мероприятии" />
+          </li>
+          <li class="photo-gallery__slide" aria-label="Фото 2 из 4">
+            <img src="images/lucy.jpg" width="735" height="487" alt="Человек у трейлера, черно-белая фотография" loading="lazy" />
+          </li>
+          <li class="photo-gallery__slide" aria-label="Фото 3 из 4">
+            <img src="images/nine1.jpg" width="735" height="414" alt="Музыкант на фоне светящегося экрана" loading="lazy" />
+          </li>
+          <li class="photo-gallery__slide" aria-label="Фото 4 из 4">
+            <img src="images/protect.jpg" width="736" height="513" alt="Человек перед зданием с традиционной крышей" loading="lazy" />
+          </li>
+        </ol>
+        <div class="photo-gallery__controls" hidden>
+          <span class="photo-gallery__counter">01 / 04</span>
+          <div class="photo-gallery__dots" aria-label="Выбор фотографии">
+            <button type="button" aria-label="Показать фото 1" aria-current="true"></button>
+            <button type="button" aria-label="Показать фото 2"></button>
+            <button type="button" aria-label="Показать фото 3"></button>
+            <button type="button" aria-label="Показать фото 4"></button>
+          </div>
+          <div class="photo-gallery__arrows">
+            <button class="photo-gallery__previous" type="button" aria-label="Предыдущее фото">←</button>
+            <button class="photo-gallery__next" type="button" aria-label="Следующее фото">→</button>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="popular" aria-labelledby="popular-title">
+        <div class="section__heading">
+          <div>
+            <h2 class="section__title" id="popular-title">Каталог битов</h2>
+          </div>
+          <a class="section__link" href="catalog.html">Весь каталог →</a>
+        </div>
+        <div class="products-grid">
+          <article class="product-card product-card--featured">
+            <div class="beat-preview">
+              <iframe
+                class="beat-player"
+                src="https://www.youtube-nocookie.com/embed/kIURX1Ku31Y"
+                title='Прослушать nine vicious sample type beat - "wokeuplikethis"'
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowfullscreen
+              ></iframe>
+              <a
+                href="https://www.youtube.com/watch?v=kIURX1Ku31Y"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть nine vicious sample type beat - "wokeuplikethis" на
+                YouTube (новая вкладка)</a
+              >
+            </div>
+            <p class="product-card__category">Бит</p>
+            <h3 class="product-card__title">
+              <a href="product.html#beat-01"
+                >nine vicious sample type beat - "wokeuplikethis"</a
+              >
+            </h3>
+            <p class="product-card__description">
+              Прослушивание доступно в плеере. Стоимость и условия использования
+              уточняются при обращении.
+            </p>
+            <p class="product-card__price">Цена по запросу</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html#beat-01"
+                >Подробнее</a
+              >
+              <button
+                class="button button--primary product-card__button"
+                type="button"
+                data-order-product="beat-01"
+              >
+                Заказать
+              </button>
+            </div>
+          </article>
+          <article class="product-card product-card--new">
+            <div class="beat-preview">
+              <iframe
+                class="beat-player"
+                src="https://www.youtube.com/embed/oRbOh9WSYxc"
+                title='Прослушать nine vicious sample type beat - "do i clench my fists?"'
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowfullscreen
+              ></iframe>
+              <a
+                href="https://www.youtube.com/watch?v=oRbOh9WSYxc"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть nine vicious sample type beat - "do i clench my fists?"
+                на YouTube (новая вкладка)</a
+              >
+            </div>
+            <p class="product-card__category">Бит</p>
+            <h3 class="product-card__title">
+              <a href="product.html#beat-02"
+                >nine vicious sample type beat - "do i clench my fists?"</a
+              >
+            </h3>
+            <p class="product-card__description">
+              Прослушивание доступно в плеере. Стоимость и условия использования
+              уточняются при обращении.
+            </p>
+            <p class="product-card__price">Цена по запросу</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html#beat-02"
+                >Подробнее</a
+              >
+              <button
+                class="button button--primary product-card__button"
+                type="button"
+                data-order-product="beat-02"
+              >
+                Заказать
+              </button>
+            </div>
+          </article>
+          <article class="product-card product-card--discount">
+            <div class="beat-preview">
+              <iframe
+                class="beat-player"
+                src="https://www.youtube-nocookie.com/embed/LorADAaQas0"
+                title='Прослушать tana + untiljapan type beat - "finewine"'
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="encrypted-media; picture-in-picture; fullscreen"
+                allowfullscreen
+              ></iframe>
+              <a
+                href="https://www.youtube.com/watch?v=LorADAaQas0"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Открыть tana + untiljapan type beat - "finewine" на YouTube
+                (новая вкладка)</a
+              >
+            </div>
+            <p class="product-card__category">Бит</p>
+            <h3 class="product-card__title">
+              <a href="product.html#beat-03"
+                >tana + untiljapan type beat - "finewine"</a
+              >
+            </h3>
+            <p class="product-card__description">
+              Прослушивание доступно в плеере. Стоимость и условия использования
+              уточняются при обращении.
+            </p>
+            <p class="product-card__price">Цена по запросу</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html#beat-03"
+                >Подробнее</a
+              >
+              <button
+                class="button button--primary product-card__button"
+                type="button"
+                data-order-product="beat-03"
+              >
+                Заказать
+              </button>
+            </div>
+          </article>
+          <article class="product-card">
+            <div class="beat-preview">
+              <a
+                class="beat-preview__external"
+                href="https://www.youtube.com/watch?v=fJrh2Ttu4oI"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label='Смотреть [free] untiljapan + nosaint type beat - "eye to eye" на YouTube (новая вкладка)'
+              >
+                <img
+                  src="images/eye-to-eye-thumb.jpg"
+                  width="1280"
+                  height="720"
+                  alt=""
+                  loading="lazy"
+                />
+                <span class="beat-preview__play" aria-hidden="true"></span>
+                <span class="beat-preview__hint" aria-hidden="true">Слушать на YouTube ↗</span>
+              </a>
+            </div>
+            <p class="product-card__category">Бит</p>
+            <h3 class="product-card__title">
+              <a href="product.html#beat-04"
+                >[free] untiljapan + nosaint type beat - "eye to eye"</a
+              >
+            </h3>
+            <p class="product-card__description">
+              Прослушивание открывается на YouTube. Стоимость и условия использования
+              уточняются при обращении.
+            </p>
+            <p class="product-card__price">Цена по запросу</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html#beat-04"
+                >Подробнее</a
+              >
+              <button
+                class="button button--primary product-card__button"
+                type="button"
+                data-order-product="beat-04"
+              >
+                Заказать
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+      <p
+        class="success-message"
+        id="success-message"
+        role="status"
+        tabindex="-1"
+        hidden
+      ></p>
+      <section
+        class="section"
+        id="advantages"
+        aria-labelledby="advantages-title"
+      >
+        <div class="section__heading">
+          <div>
+            <h2 class="section__title" id="advantages-title">
+              Преимущества магазина
+            </h2>
+          </div>
+        </div>
+        <div class="benefits">
+          <article class="benefit">
+            <h3 class="benefit__title">Сравнение битов</h3>
+            <p class="benefit__text">
+              В таблице указаны способ прослушивания и информация о стоимости.
+            </p>
+            <a href="catalog.html#comparison">К сравнению →</a>
+          </article>
+          <article class="benefit">
+            <h3 class="benefit__title">Характеристики битов</h3>
+            <p class="benefit__text">
+              Для каждого бита есть прослушивание и информация об условиях покупки.
+            </p>
+            <a href="product.html">Открыть характеристики →</a>
+          </article>
+          <article class="benefit">
+            <h3 class="benefit__title">Форма заявки</h3>
+            <p class="benefit__text">
+              При переходе из карточки бит выбирается автоматически. В форме
+              указываются контактные данные и комментарий.
+            </p>
+            <a href="order.html">Перейти к форме →</a>
+          </article>
+        </div>
+      </section>
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <div>
+          <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+          <p class="section__description">Коротко о битах и заявке.</p>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item">
+            <summary class="faq__question">
+              Можно ли купить бит на сайте?
+            </summary>
+            <p class="faq__answer">
+              На сайте можно выбрать бит и заполнить форму. Онлайн-оплата и
+              отправка заявки пока недоступны.
+            </p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">
+              Как посмотреть характеристики?
+            </summary>
+            <p class="faq__answer">
+              Ссылка «Подробнее» в карточке ведёт на страницу с прослушиванием и
+              информацией о бите.
+            </p>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__question">
+              Чем быстрая заявка отличается от страницы заявки?
+            </summary>
+            <p class="faq__answer">
+              В модальном окне удобно оставить заявку, не уходя из каталога. На
+              отдельной странице доступна та же форма с подсказками.
+            </p>
+          </details>
+        </div>
+      </section>
+      <aside class="callout">
+        <div>
+          <h2 class="callout__title">Консультация</h2>
+          <p class="callout__text">
+            Вопрос о бите можно указать в заявке с темой «Консультация».
+          </p>
+        </div>
+        <a class="button button--primary" href="order.html">Оставить заявку</a>
+      </aside>
+    </main>
+    <footer class="site-footer" id="contacts">
+      <div class="site-footer__inner">
+        <div>
+          <a class="site-footer__logo" href="index.html">Beat Store</a>
+          <p class="site-footer__note">Каталог битов.</p>
+        </div>
+        <nav class="site-footer__nav" aria-label="Разделы главной страницы">
+          <a href="index.html#advantages">Преимущества</a>
+          <a href="index.html#popular">Популярные биты</a>
+          <a href="index.html#faq">Вопросы и ответы</a>
+          <a href="contacts.html">Контакты</a>
+        </nav>
+        <p class="site-footer__note">© 2026 Beat Store.</p>
+      </div>
+    </footer>
+    <a class="back-to-top" href="#top" aria-label="Вернуться наверх"
+      >↑ Наверх</a
+    >
+    <dialog
+      class="order-dialog"
+      id="order-dialog"
+      aria-labelledby="order-dialog-title"
+    >
+      <h2 class="order-dialog__title" id="order-dialog-title">
+        Оставить заявку
+      </h2>
+      <form class="order-form" id="order-form" action="order.html" method="get">
+        <p class="order-form__note order-form__field--wide">
+          Поля со звёздочкой * обязательны.
+        </p>
+        <noscript class="order-form__field--wide">
+          <p class="order-form__note">
+            Для проверки формы без перезагрузки страницы включите JavaScript.
+          </p>
+        </noscript>
+        <div class="order-form__field order-form__field--wide">
+          <label class="order-form__label" for="selected-product">Бит *</label>
+          <select
+            class="order-form__select"
+            id="selected-product"
+            name="product"
+            required
+          >
+            <option value="">Выберите бит</option>
+            <option value="beat-01">
+              nine vicious sample type beat - "wokeuplikethis" — цена по запросу
+            </option>
+            <option value="beat-02">
+              nine vicious sample type beat - "do i clench my fists?" — цена по
+              запросу
+            </option>
+            <option value="beat-03">
+              tana + untiljapan type beat - "finewine" — цена по запросу
+            </option>
+            <option value="beat-04">
+              [free] untiljapan + nosaint type beat - "eye to eye" — цена по запросу
+            </option>
+          </select>
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-name">Имя *</label>
+          <input
+            class="order-form__input"
+            id="order-name"
+            name="name"
+            type="text"
+            minlength="2"
+            maxlength="60"
+            autocomplete="given-name"
+            placeholder="Например, Алексей"
+            required
+          />
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-email">E-mail *</label>
+          <input
+            class="order-form__input"
+            id="order-email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            placeholder="name@example.com"
+            required
+          />
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-phone">Телефон *</label>
+          <input
+            class="order-form__input"
+            id="order-phone"
+            name="phone"
+            type="tel"
+            autocomplete="tel"
+            inputmode="tel"
+            pattern="\+7[0-9]{10}"
+            placeholder="+79000000000"
+            aria-describedby="phone-hint"
+            required
+          />
+          <small class="order-form__hint" id="phone-hint"
+            >+7 и 10 цифр, без пробелов: +79000000000.</small
+          >
+        </div>
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-date"
+            >Удобная дата связи</label
+          >
+          <input
+            class="order-form__input"
+            id="order-date"
+            name="date"
+            type="date"
+          />
+        </div>
+        <div class="order-form__field order-form__field--wide">
+          <label class="order-form__label" for="order-topic"
+            >Тема заявки *</label
+          >
+          <select
+            class="order-form__select"
+            id="order-topic"
+            name="topic"
+            required
+          >
+            <option value="product">Заказ бита</option>
+            <option value="consultation">Консультация</option>
+            <option value="delivery">Условия лицензии</option>
+          </select>
+        </div>
+        <div class="order-form__field order-form__field--wide">
+          <label class="order-form__label" for="order-comment"
+            >Комментарий</label
+          >
+          <textarea
+            class="order-form__textarea"
+            id="order-comment"
+            name="comment"
+            rows="3"
+            maxlength="1000"
+            placeholder="Комментарий к заявке"
+          ></textarea>
+        </div>
+        <div class="order-form__consent order-form__field--wide">
+          <input
+            class="order-form__checkbox"
+            id="order-agreement"
+            name="agreement"
+            type="checkbox"
+            required
+          />
+          <label class="order-form__label" for="order-agreement"
+            >Согласен на обработку указанных данных *</label
+          >
+        </div>
+        <div class="order-form__actions order-form__field--wide">
+          <button class="button button--primary" type="submit">
+            Отправить заявку
+          </button>
+          <button
+            class="button button--secondary"
+            id="close-order-dialog"
+            type="button"
+          >
+            Закрыть
+          </button>
+        </div>
+      </form>
+    </dialog>
+  </body>
+</html>
