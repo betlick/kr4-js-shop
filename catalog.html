@@ -11,9 +11,12 @@
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css?v=player-layout-2" />
     <link rel="stylesheet" href="css/responsive.css?v=responsive-8" />
-    <link rel="stylesheet" href="css/beat-theme.css?v=beat-11" />
+    <link rel="stylesheet" href="css/beat-theme.css?v=beat-18" />
     <script src="js/data.js" defer></script>
+    <script src="js/catalog.js" defer></script>
     <script src="js/main.js?v=gallery-7" defer></script>
+    <script src="js/players.js?v=2" defer></script>
+    <script src="js/validation.js" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -69,264 +72,48 @@
           <a class="category-nav__link" href="product.html#beat-04"
             >[free] untiljapan + nosaint type beat - "eye to eye"</a
           >
+          <a class="category-nav__link" href="product.html#beat-05">only u</a>
+          <a class="category-nav__link" href="product.html#beat-06">Dreamless Night</a>
+          <a class="category-nav__link" href="product.html#beat-07">cough syrup</a>
+          <a class="category-nav__link" href="product.html#beat-08">du bist gut genug</a>
         </nav>
       </section>
       <div class="catalog-layout">
         <aside class="catalog-filters" aria-labelledby="filters-title">
           <h2 class="catalog-filters__title" id="filters-title">Фильтры</h2>
-          <p class="catalog-filters__note" id="filter-note">
-            Фильтрация пока недоступна. Все биты представлены ниже.
-          </p>
-          <form
-            class="filters-form"
-            action="catalog.html"
-            method="get"
-            aria-describedby="filter-note"
-          >
-            <fieldset class="filters-form__group" disabled>
-              <legend class="filters-form__legend">Категория</legend>
-              <label class="filters-form__label" for="category-keys">
-                <input
-                  id="category-keys"
-                  name="category"
-                  type="checkbox"
-                  value="beat-01"
-                />nine vicious sample type beat - "wokeuplikethis"</label
-              >
-              <label class="filters-form__label" for="category-sound">
-                <input
-                  id="category-sound"
-                  name="category"
-                  type="checkbox"
-                  value="beat-02"
-                />nine vicious sample type beat - "do i clench my fists?"</label
-              >
-              <label class="filters-form__label" for="category-light">
-                <input
-                  id="category-light"
-                  name="category"
-                  type="checkbox"
-                  value="beat-03"
-                />tana + untiljapan type beat - "finewine"</label
-              >
-              <label class="filters-form__label" for="category-eye">
-                <input
-                  id="category-eye"
-                  name="category"
-                  type="checkbox"
-                  value="beat-04"
-                />[free] untiljapan + nosaint type beat - "eye to eye"</label
-              >
-            </fieldset>
-            <fieldset class="filters-form__group" disabled>
-              <legend class="filters-form__legend">Цена, ₽</legend>
-              <label class="filters-form__label" for="price-from">От</label>
-              <input
-                class="filters-form__input"
-                id="price-from"
-                name="price-from"
-                type="number"
-                min="0"
-                placeholder="0"
-              />
-              <label class="filters-form__label" for="price-to">До</label>
-              <input
-                class="filters-form__input"
-                id="price-to"
-                name="price-to"
-                type="number"
-                min="0"
-                placeholder="5000"
-              />
-            </fieldset>
-            <button class="button button--primary" type="submit" disabled>
-              Применить
-            </button>
+          <form class="filters-form" data-catalog-filters>
+            <label class="filters-form__label" for="catalog-search">Поиск по названию</label>
+            <input class="filters-form__input" id="catalog-search" type="search" data-catalog-search placeholder="Название бита" />
+            <label class="filters-form__label" for="catalog-category">Категория</label>
+            <select class="filters-form__input" id="catalog-category" data-catalog-category>
+              <option value="all">Все категории</option>
+              <option value="nine-vicious">Nine Vicious</option>
+              <option value="untiljapan">Untiljapan</option>
+              <option value="tana">Tana</option>
+              <option value="nosaint">Nosaint</option>
+              <option value="skaiwater">Skaiwater</option>
+              <option value="tezzus">Tezzus</option>
+              <option value="che">Che</option>
+              <option value="free">С пометкой free</option>
+            </select>
+            <label class="filters-form__label" for="catalog-sort">Сортировка</label>
+            <select class="filters-form__input" id="catalog-sort" data-catalog-sort>
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="title">По названию</option>
+            </select>
+            <button class="button button--primary filters-form__submit" type="reset">Сбросить фильтры</button>
           </form>
-          <a class="catalog-filters__link" href="#comparison"
-            >Сравнить биты ↓</a
-          >
+          <a class="button button--secondary catalog-filters__link" href="#comparison">К сравнению ↓</a>
         </aside>
         <section class="catalog-products" aria-labelledby="products-title">
           <div class="section__heading">
             <h2 class="section__title" id="products-title">Все биты</h2>
-            <span class="catalog-products__count">4 бита</span>
+            <span class="catalog-products__count" data-catalog-count aria-live="polite">Загрузка каталога…</span>
           </div>
-          <div class="products-grid products-grid--catalog">
-            <article class="product-card product-card--featured">
-              <div class="beat-preview">
-                <iframe
-                  class="beat-player"
-                  src="https://www.youtube-nocookie.com/embed/kIURX1Ku31Y"
-                  title='Прослушать nine vicious sample type beat - "wokeuplikethis"'
-                  loading="lazy"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allow="encrypted-media; picture-in-picture; fullscreen"
-                  allowfullscreen
-                ></iframe>
-                <a
-                  href="https://www.youtube.com/watch?v=kIURX1Ku31Y"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Открыть nine vicious sample type beat - "wokeuplikethis" на
-                  YouTube (новая вкладка)</a
-                >
-              </div>
-              <p class="product-card__category">Бит</p>
-              <h3 class="product-card__title">
-                <a href="product.html#beat-01"
-                  >nine vicious sample type beat - "wokeuplikethis"</a
-                >
-              </h3>
-              <p class="product-card__description">
-                Прослушивание доступно в плеере. Стоимость и условия
-                использования уточняются при обращении.
-              </p>
-              <p class="product-card__price">Цена по запросу</p>
-              <div class="product-card__actions">
-                <a class="button button--secondary" href="product.html#beat-01"
-                  >Подробнее</a
-                >
-                <button
-                  class="button button--primary product-card__button"
-                  type="button"
-                  data-order-product="beat-01"
-                >
-                  Заказать
-                </button>
-              </div>
-            </article>
-            <article class="product-card product-card--new">
-              <div class="beat-preview">
-                <iframe
-                  class="beat-player"
-                  src="https://www.youtube.com/embed/oRbOh9WSYxc"
-                  title='Прослушать nine vicious sample type beat - "do i clench my fists?"'
-                  loading="lazy"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allow="encrypted-media; picture-in-picture; fullscreen"
-                  allowfullscreen
-                ></iframe>
-                <a
-                  href="https://www.youtube.com/watch?v=oRbOh9WSYxc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Открыть nine vicious sample type beat - "do i clench my
-                  fists?" на YouTube (новая вкладка)</a
-                >
-              </div>
-              <p class="product-card__category">Бит</p>
-              <h3 class="product-card__title">
-                <a href="product.html#beat-02"
-                  >nine vicious sample type beat - "do i clench my fists?"</a
-                >
-              </h3>
-              <p class="product-card__description">
-                Прослушивание доступно в плеере. Стоимость и условия
-                использования уточняются при обращении.
-              </p>
-              <p class="product-card__price">Цена по запросу</p>
-              <div class="product-card__actions">
-                <a class="button button--secondary" href="product.html#beat-02"
-                  >Подробнее</a
-                >
-                <button
-                  class="button button--primary product-card__button"
-                  type="button"
-                  data-order-product="beat-02"
-                >
-                  Заказать
-                </button>
-              </div>
-            </article>
-            <article class="product-card product-card--discount">
-              <div class="beat-preview">
-                <iframe
-                  class="beat-player"
-                  src="https://www.youtube-nocookie.com/embed/LorADAaQas0"
-                  title='Прослушать tana + untiljapan type beat - "finewine"'
-                  loading="lazy"
-                  referrerpolicy="strict-origin-when-cross-origin"
-                  allow="encrypted-media; picture-in-picture; fullscreen"
-                  allowfullscreen
-                ></iframe>
-                <a
-                  href="https://www.youtube.com/watch?v=LorADAaQas0"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >Открыть tana + untiljapan type beat - "finewine" на YouTube
-                  (новая вкладка)</a
-                >
-              </div>
-              <p class="product-card__category">Бит</p>
-              <h3 class="product-card__title">
-                <a href="product.html#beat-03"
-                  >tana + untiljapan type beat - "finewine"</a
-                >
-              </h3>
-              <p class="product-card__description">
-                Прослушивание доступно в плеере. Стоимость и условия
-                использования уточняются при обращении.
-              </p>
-              <p class="product-card__price">Цена по запросу</p>
-              <div class="product-card__actions">
-                <a class="button button--secondary" href="product.html#beat-03"
-                  >Подробнее</a
-                >
-                <button
-                  class="button button--primary product-card__button"
-                  type="button"
-                  data-order-product="beat-03"
-                >
-                  Заказать
-                </button>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="beat-preview">
-                <a
-                  class="beat-preview__external"
-                  href="https://www.youtube.com/watch?v=fJrh2Ttu4oI"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label='Смотреть [free] untiljapan + nosaint type beat - "eye to eye" на YouTube (новая вкладка)'
-                >
-                  <img
-                    src="images/eye-to-eye-thumb.jpg"
-                    width="1280"
-                    height="720"
-                    alt=""
-                    loading="lazy"
-                  />
-                  <span class="beat-preview__play" aria-hidden="true"></span>
-                  <span class="beat-preview__hint" aria-hidden="true">Слушать на YouTube ↗</span>
-                </a>
-              </div>
-              <p class="product-card__category">Бит</p>
-              <h3 class="product-card__title">
-                <a href="product.html#beat-04"
-                  >[free] untiljapan + nosaint type beat - "eye to eye"</a
-                >
-              </h3>
-              <p class="product-card__description">
-                Прослушивание открывается на YouTube. Стоимость и условия
-                использования уточняются при обращении.
-              </p>
-              <p class="product-card__price">Цена по запросу</p>
-              <div class="product-card__actions">
-                <a class="button button--secondary" href="product.html#beat-04"
-                  >Подробнее</a
-                >
-                <button
-                  class="button button--primary product-card__button"
-                  type="button"
-                  data-order-product="beat-04"
-                >
-                  Заказать
-                </button>
-              </div>
-            </article>
-          </div>
+          <div class="products-grid products-grid--catalog" data-products-container></div>
+          <p class="catalog-empty" data-catalog-empty hidden>По выбранным условиям биты не найдены.</p>
         </section>
       </div>
       <p
@@ -463,7 +250,10 @@
             <option value="beat-04">
               [free] untiljapan + nosaint type beat - "eye to eye" — цена по запросу
             </option>
-          </select>
+          <option value="beat-05">only u — внешний автор</option>
+<option value="beat-06">Dreamless Night — внешний автор</option>
+<option value="beat-07">cough syrup — внешний автор</option>
+<option value="beat-08">du bist gut genug — внешний автор</option></select>
         </div>
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя *</label>

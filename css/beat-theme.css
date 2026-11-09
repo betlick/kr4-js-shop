@@ -236,17 +236,38 @@ h2 {
   background: var(--color-border);
   background-clip: content-box;
   cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease;
 }
 .photo-gallery__dots button[aria-current="true"] {
+  background-color: var(--color-primary-dark);
+}
+.photo-gallery__dots button:hover,
+.photo-gallery__dots button:focus-visible {
+  transform: scale(1.2);
   background-color: var(--color-primary-dark);
 }
 .photo-gallery__arrows button {
   width: 44px;
   height: 44px;
   border: 1px solid var(--color-text);
+  border-radius: 8px;
   background: transparent;
   color: var(--color-text);
   cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+.photo-gallery__arrows button:hover,
+.photo-gallery__arrows button:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--color-primary-dark);
+  background: var(--color-primary-dark);
+  color: #fff;
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+.photo-gallery__arrows button:focus-visible,
+.photo-gallery__dots button:focus-visible {
+  outline: 2px solid var(--color-primary-dark);
+  outline-offset: 3px;
 }
 .section {
   margin-bottom: 40px;
@@ -523,4 +544,633 @@ h2 {
   color: #f9fafb;
   background-color: #111827;
   border-radius: 8px;
+}
+
+/* Каталог: одинаковые превью и аккуратная нижняя часть карточек. */
+.products-grid--catalog .product-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.products-grid--catalog .product-card:hover {
+  background: #fff;
+  border-color: var(--color-primary);
+}
+.products-grid--catalog .product-card__title,
+.products-grid--catalog .product-card__description,
+.products-grid--catalog .product-card__price {
+  overflow-wrap: anywhere;
+}
+.products-grid--catalog .product-card__price {
+  margin-top: auto;
+  white-space: normal;
+}
+.products-grid--catalog .product-card__actions {
+  flex-wrap: wrap;
+}
+.beat-preview__link {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #231815;
+}
+.beat-preview__link img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.beat-preview__play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 64px;
+  height: 44px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  color: #fff;
+  background: #e62117;
+  font-size: 23px;
+}
+.beat-preview__link:hover .beat-preview__play-button,
+.beat-preview__link:focus-visible .beat-preview__play-button {
+  background: #b91d16;
+}
+
+/* Поля фильтров оформлены в том же стиле, что и кнопки магазина. */
+.catalog-filters {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.catalog-filters__title {
+  margin: 0 0 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 32px;
+}
+.filters-form {
+  display: grid;
+  gap: 8px;
+}
+.filters-form__label {
+  margin: 12px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+.filters-form__input {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 46px;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font: inherit;
+}
+.filters-form__input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.catalog-filters__link {
+  margin-top: 24px;
+}
+.product-detail__author {
+  color: var(--color-muted);
+  font-weight: 700;
+}
+.more-products .product-detail {
+  margin-bottom: var(--space-xl);
+}
+
+/* Выбор параметров завершается кнопкой, карточки заметно реагируют на наведение. */
+.filters-form__submit,
+.catalog-filters__link {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.filters-form__submit { margin-top: 18px; cursor: pointer; }
+.catalog-filters__link { display: inline-flex; margin-top: 12px; text-decoration: none; }
+.catalog-filters__link:hover,
+.catalog-filters__link:focus-visible {
+  background: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.filters-form__submit:hover,
+.filters-form__submit:focus-visible {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.products-grid--catalog .product-card {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.products-grid--catalog .product-card:hover,
+.products-grid--catalog .product-card:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+.beat-preview > .beat-preview__link {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  margin: 0;
+  overflow: hidden;
+}
+.beat-preview__link img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .25s ease, filter .25s ease;
+}
+.beat-preview__link:hover img,
+.beat-preview__link:focus-visible img {
+  transform: scale(1.05);
+  filter: brightness(.75);
+}
+.beat-preview__play-button {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 64px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  background: #e62117;
+}
+.beat-preview__play-button::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-40%, -50%);
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 16px solid #fff;
+  content: "";
+}
+@media (prefers-reduced-motion: reduce) {
+  .products-grid--catalog .product-card,
+  .beat-preview__link img,
+  .filters-form__submit,
+  .catalog-filters__link { transition: none; }
+}
+
+/* Общий вид карточек на главной и в каталоге. */
+.products-grid .product-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.products-grid .product-card:hover,
+.products-grid .product-card:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  background: #fff;
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+.products-grid .product-card__price { margin-top: auto; white-space: normal; }
+.products-grid .product-card__actions { flex-wrap: wrap; }
+.beat-preview__fallback {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+.beat-preview__link { cursor: pointer; }
+.beat-preview__link:focus-visible { outline: 3px solid var(--color-primary); outline-offset: 3px; }
+
+/* Преимущества и ответы читаются как отдельные, ровные блоки. */
+.benefits { gap: 18px; }
+.benefit {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.benefit__title { margin: 0; font-size: 24px; }
+.benefit__text { margin: 0; line-height: 1.55; }
+.benefit a { margin-top: auto; font-weight: 700; }
+.faq { display: grid; gap: 24px; }
+.faq__list { display: grid; gap: 10px; }
+.faq__item {
+  padding: 0;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.faq__question { padding: 18px 22px; font-size: 18px; }
+.faq__question:hover { background: #f4f4f1; }
+.faq__item[open] { border-color: var(--color-border); }
+.faq__answer { padding: 0 22px 20px; line-height: 1.55; }
+
+/* Контактные карточки стоят по центру страницы. */
+.contact-grid {
+  display: grid;
+  width: min(100%, 900px);
+  margin: 0 auto 40px;
+  gap: 20px;
+}
+.contact-card {
+  min-width: 0;
+  margin: 0;
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.contact-card__title { margin-top: 0; }
+.contact-card--accent { background: var(--color-surface); }
+.contact-card__address { line-height: 1.5; }
+
+/* Футер собирает логотип, навигацию и подпись в ровный блок. */
+.site-footer { border-top: 2px solid var(--color-primary-dark); background: var(--color-surface); }
+.site-footer__inner {
+  width: min(100%, var(--container-width));
+  margin: 0 auto;
+  padding: 36px 20px;
+  align-items: start;
+  gap: 24px;
+}
+.site-footer__nav { display: flex; flex-wrap: wrap; gap: 10px 20px; }
+.site-footer__nav a { color: var(--color-primary-dark); text-decoration: none; font-weight: 700; }
+.site-footer__nav a:hover, .site-footer__nav a:focus-visible { text-decoration: underline; }
+.site-footer__note { color: var(--color-muted); line-height: 1.5; }
+@media (min-width: 700px) {
+  .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 699px) {
+  .site-footer__inner { text-align: center; justify-items: center; }
+  .site-footer__nav { justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .products-grid .product-card { transition: none; }
+}
+
+/* Единое оформление карточек, таблиц и страниц заявки. */
+.product-detail {
+  padding: 28px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.product-detail:hover { border-color: var(--color-primary); }
+.product-table { background: #fff; }
+.product-table thead { background: #fff; }
+.product-table tbody tr:hover { background: #f7f5f1; }
+.contact-card--accent { background: #fff; }
+.page-main--order .page-intro { text-align: center; }
+.order-layout {
+  display: grid;
+  width: min(100%, 1000px);
+  margin: 0 auto 48px;
+  gap: 28px;
+  align-items: start;
+}
+.order-panel { width: 100%; max-width: none; }
+.order-help { margin: 0; background: #fff; border: 1px solid var(--color-border); }
+@media (min-width: 900px) {
+  .order-layout { grid-template-columns: minmax(0, 620px) minmax(0, 1fr); }
+  .site-footer__inner {
+    grid-template-columns: minmax(180px, 1fr) auto minmax(180px, 1fr);
+    align-items: start;
+  }
+  .site-footer__nav { justify-content: center; }
+  .site-footer__inner > .site-footer__note:last-child {
+    justify-self: end;
+    margin-top: 5px;
+  }
+}
+@media (max-width: 899px) {
+  .site-footer__inner { grid-template-columns: 1fr; text-align: center; justify-items: center; }
+  .site-footer__nav { justify-content: center; }
+}
+.beat-preview__external-only {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #231815;
+  color: #fff;
+}
+.beat-preview__external-only img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .2s ease, filter .2s ease;
+}
+.beat-preview__external-only span {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 8px 10px;
+  background: rgb(35 24 21 / 88%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.beat-preview__external-only:hover img,
+.beat-preview__external-only:focus-visible img { transform: scale(1.04); filter: brightness(.75); }
+@media (prefers-reduced-motion: reduce) {
+  .beat-preview__external-only img { transition: none; }
+}
+
+/* Действия в карточках преимуществ выглядят как единый набор кнопок. */
+.benefit a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-primary-dark);
+  background: #fff;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-weight: 700;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.benefit a:hover,
+.benefit a:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-primary-dark);
+  color: #fff;
+}
+.benefit a:focus-visible { outline: 2px solid var(--color-primary-dark); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) {
+  .benefit a { transition: none; }
+}
+.faq__question:hover,
+.faq__question:focus-visible {
+  background: #f4f4f1;
+  color: var(--color-text);
+}
+.faq__item:has(.faq__question:hover),
+.faq__item:has(.faq__question:focus-visible) {
+  border-color: var(--color-border);
+}
+
+/* Единый радиус для карточек и элементов управления. */
+:root { --radius: 12px; }
+.products-grid .product-card,
+.product-detail,
+.benefit,
+.faq__item,
+.contact-card,
+.catalog-filters,
+.order-panel,
+.order-help,
+.callout,
+.order-dialog { border-radius: var(--radius); }
+.callout { border: 1px solid var(--color-text); }
+.order-panel {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+}
+.beat-preview,
+.beat-player,
+.beat-preview__external-only,
+.beat-preview__link { border-radius: 10px; }
+.button,
+.filters-form__input,
+.order-form__input,
+.order-form__select,
+.order-form__textarea,
+.benefit a,
+.filters-form__submit,
+.catalog-filters__link { border-radius: 8px; }
+.table-wrapper { border-radius: 10px; }
+.site-footer__nav { gap: 8px; }
+.site-footer__nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid var(--color-primary-dark);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.site-footer__nav a:hover,
+.site-footer__nav a:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-primary-dark);
+  color: #fff;
+  text-decoration: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__nav a { transition: none; }
+}
+
+/* На странице контактов все основные блоки стоят на одной линии. */
+.page-main--contacts .breadcrumbs,
+.page-main--contacts .page-intro,
+.page-main--contacts .callout {
+  width: min(100%, 900px);
+  margin-inline: auto;
+}
+.page-main--contacts .callout { margin-bottom: 40px; }
+.page-main--contacts .breadcrumbs,
+.page-main--contacts .page-intro,
+.page-main--contacts .contact-card,
+.page-main--contacts .callout {
+  text-align: center;
+}
+
+/* Футер выровнен и по ширине, и по вертикали. */
+.site-footer__inner { align-items: center; }
+.site-footer__inner > .site-footer__note:last-child { margin-top: 0; }
+@media (min-width: 900px) {
+  .site-footer__inner { align-items: center; }
+  .site-footer__inner > .site-footer__note:last-child { margin-top: 0; }
+}
+
+/* Выраженное наведение для информационного блока и его действия. */
+.callout {
+  transition: background .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.callout:hover,
+.callout:focus-within {
+  transform: translateY(-3px);
+  background: #a9c0d2;
+  box-shadow: 0 12px 26px rgb(35 24 21 / 14%);
+}
+.callout .button:hover,
+.callout .button:focus-visible {
+  transform: translateY(-2px);
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .callout { transition: none; }
+}
+
+/* Общий эффект наведения для карточек и кнопок магазина. */
+.products-grid .product-card,
+.benefit,
+.faq__item,
+.contact-card,
+.product-detail,
+.callout {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.products-grid .product-card:hover,
+.products-grid .product-card:focus-within,
+.benefit:hover,
+.benefit:focus-within,
+.faq__item:hover,
+.faq__item:focus-within,
+.contact-card:hover,
+.contact-card:focus-within,
+.product-detail:hover,
+.product-detail:focus-within,
+.callout:hover,
+.callout:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+.button,
+.benefit a,
+.site-footer__nav a,
+.catalog-filters__link {
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+}
+.button:hover,
+.button:focus-visible,
+.benefit a:hover,
+.benefit a:focus-visible,
+.site-footer__nav a:hover,
+.site-footer__nav a:focus-visible,
+.catalog-filters__link:hover,
+.catalog-filters__link:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgb(35 24 21 / 16%);
+}
+
+/* Скругление блока сравнения и его таблицы. */
+#comparison {
+  padding: 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+#comparison:hover,
+#comparison:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+#comparison .table-wrapper {
+  border-radius: var(--radius);
+  overflow-x: auto;
+}
+
+/* Названия битов в каталоге выглядят как ровная сетка ссылок. */
+.category-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+}
+.category-nav__link {
+  display: flex;
+  align-items: center;
+  min-height: 72px;
+  padding: 12px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text);
+  font-weight: 700;
+  line-height: 1.3;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.category-nav__link:hover,
+.category-nav__link:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+
+/* Страница заявки и футер используют то же наведение, что карточки битов. */
+.order-panel,
+.order-help {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.order-panel:hover,
+.order-panel:focus-within,
+.order-help:hover,
+.order-help:focus-within {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+.order-help a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.order-help a:hover,
+.order-help a:focus-visible,
+.site-footer__nav a:hover,
+.site-footer__nav a:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+  background: #fff;
+  color: var(--color-primary-dark);
+  box-shadow: 0 12px 28px rgb(35 24 21 / 16%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .products-grid .product-card,
+  .benefit,
+  .faq__item,
+  .contact-card,
+  .product-detail,
+  .callout,
+  .button,
+  .benefit a,
+  .site-footer__nav a,
+  .catalog-filters__link,
+  .order-panel,
+  .order-help,
+  .order-help a,
+  #comparison,
+  .category-nav__link { transition: none; }
+  .photo-gallery__arrows button,
+  .photo-gallery__dots button { transition: none; }
 }
