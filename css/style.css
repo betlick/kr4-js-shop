@@ -547,3 +547,9 @@ h3 {
   color: white;
   font-size: 100px;
 }
+
+.order-form__error { display: block; margin-top: 4px; color: var(--color-danger); font-size: 0.875rem; }
+.order-form__error[hidden] { display: none; }
+.catalog-empty { padding: var(--space-md); border: 1px solid var(--color-border); }
+.catalog-empty[hidden] { display: none; }
+.beat-preview__placeholder { display: grid; min-height: 180px; place-items: center; background: var(--color-surface); border: 1px solid var(--color-border); }

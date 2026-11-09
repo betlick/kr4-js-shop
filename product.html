@@ -11,8 +11,12 @@
     <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/style.css?v=player-layout-2" />
     <link rel="stylesheet" href="css/responsive.css?v=responsive-8" />
-    <link rel="stylesheet" href="css/beat-theme.css?v=beat-11" />
+    <link rel="stylesheet" href="css/beat-theme.css?v=beat-18" />
+    <script src="js/data.js" defer></script>
+    <script src="js/product.js?v=3" defer></script>
     <script src="js/main.js?v=gallery-7" defer></script>
+    <script src="js/players.js?v=2" defer></script>
+    <script src="js/validation.js" defer></script>
   </head>
   <body id="top">
     <a class="skip-link" href="#main-content">Перейти к содержимому</a>
@@ -68,6 +72,10 @@
           <a class="category-nav__link" href="#beat-04"
             >[free] untiljapan + nosaint type beat - "eye to eye"</a
           >
+          <a class="category-nav__link" href="#beat-05">only u</a>
+          <a class="category-nav__link" href="#beat-06">Dreamless Night</a>
+          <a class="category-nav__link" href="#beat-07">cough syrup</a>
+          <a class="category-nav__link" href="#beat-08">du bist gut genug</a>
         </nav>
       </section>
       <article
@@ -97,6 +105,7 @@
           <h2 class="product-detail__title" id="beat-01-title">
             nine vicious sample type beat - "wokeuplikethis"
           </h2>
+          <p class="product-detail__author">Автор: auguxt</p>
           <p class="product-detail__description">
             Прослушивание доступно в плеере. Стоимость и условия использования
             уточняются при обращении.
@@ -180,6 +189,7 @@
           <h2 class="product-detail__title" id="beat-02-title">
             nine vicious sample type beat - "do i clench my fists?"
           </h2>
+          <p class="product-detail__author">Автор: auguxt</p>
           <p class="product-detail__description">
             Прослушивание доступно в плеере. Стоимость и условия использования
             уточняются при обращении.
@@ -264,6 +274,7 @@
           <h2 class="product-detail__title" id="beat-03-title">
             tana + untiljapan type beat - "finewine"
           </h2>
+          <p class="product-detail__author">Автор: jissa</p>
           <p class="product-detail__description">
             Прослушивание доступно в плеере. Стоимость и условия использования
             уточняются при обращении.
@@ -348,6 +359,7 @@
           <h2 class="product-detail__title" id="beat-04-title">
             [free] untiljapan + nosaint type beat - "eye to eye"
           </h2>
+          <p class="product-detail__author">Автор: mitchxy</p>
           <p class="product-detail__description">
             Прослушивание открывается на YouTube. Стоимость и условия использования
             уточняются при обращении.
@@ -404,6 +416,7 @@
           </table>
         </div>
       </article>
+      <section class="more-products" aria-label="Другие биты" data-more-products></section>
       <p
         class="success-message"
         id="success-message"
@@ -480,7 +493,10 @@
             <option value="beat-04">
               [free] untiljapan + nosaint type beat - "eye to eye" — цена по запросу
             </option>
-          </select>
+          <option value="beat-05">only u — внешний автор</option>
+<option value="beat-06">Dreamless Night — внешний автор</option>
+<option value="beat-07">cough syrup — внешний автор</option>
+<option value="beat-08">du bist gut genug — внешний автор</option></select>
         </div>
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя *</label>
